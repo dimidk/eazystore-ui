@@ -2,17 +2,42 @@ import React from "react";
 import ProductCard from "./ProductCard";
 import SearchBox from "./SearchBox";
 import DropdownBox from "./DropdownBox";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 const sortList = ["Popularity", "Price High to Low", "Price Low to High"];
 
 export default function ProductListing({ products }) {
+
   //react hook useState. instead of using = to assign a value and create
   //a function to keep the past value and add the new, with this hook
   // use the name of the var and a set<name> function which gets the new value and keep
   // the old
   const [searchText, setSearchText] = useState("");
   const [selectedSort, setSelectedSort] = useState("Popularity");
+
+  const filteredAndSortProducts = useMemo(() => {
+    if (!Array.isArray(products)) {
+      return [];
+    }
+    let filteredProducts = products.filter(
+        (product) =>
+          product.name.toLowerCase().includes(searchText.toLowerCase()) ||
+          product.description.toLowerCase().includes(searchText.toLowerCase())
+      );
+
+      return filteredProducts.slice().sort( (a,b) => {
+        switch (selectedSort) {
+          case "Price High to Low":
+            return parseFloat(b.price) - parseFloat(a.price);
+          case "Price Low to High":
+            return parseFloat(a.price) - parseFloat(b.price);
+          case "Popularity":
+            default:
+              return parseInt(b.popularity) - parseInt(a.popularity);
+        }  
+      });
+
+  },[products,searchText,selectedSort])
 
   //with this function i can pass value from child to parent when an event is
   //triggered in child.
@@ -26,31 +51,31 @@ export default function ProductListing({ products }) {
   }
 
   //if I add {} to function must have a return statement to all this
-  let filteredAndSortProducts = Array.isArray(products)
-    ? products.filter(
-        (product) =>
-          product.name.toLowerCase().includes(searchText.toLowerCase()) ||
-          product.description.toLowerCase().includes(searchText.toLowerCase())
-      )
-    : [];
-  switch (selectedSort) {
-    case "Price High to Low":
-      filteredAndSortProducts.sort(
-        (a, b) => parseFloat(b.price) - parseFloat(a.price)
-      );
-      break;
-    case "Price Low to High":
-      filteredAndSortProducts.sort(
-        (a, b) => parseFloat(a.price) - parseFloat(b.price)
-      );
-      break;
-    case "Popularity":
-    default:
-      filteredAndSortProducts.sort(
-        (a, b) => parseInt(b.popularity) - parseInt(a.popularity)
-      );
-      break;
-  }
+  // let filteredAndSortProducts = Array.isArray(products)
+  //   ? products.filter(
+  //       (product) =>
+  //         product.name.toLowerCase().includes(searchText.toLowerCase()) ||
+  //         product.description.toLowerCase().includes(searchText.toLowerCase())
+  //     )
+  //   : [];
+  // switch (selectedSort) {
+  //   case "Price High to Low":
+  //     filteredAndSortProducts.sort(
+  //       (a, b) => parseFloat(b.price) - parseFloat(a.price)
+  //     );
+  //     break;
+  //   case "Price Low to High":
+  //     filteredAndSortProducts.sort(
+  //       (a, b) => parseFloat(a.price) - parseFloat(b.price)
+  //     );
+  //     break;
+  //   case "Popularity":
+  //   default:
+  //     filteredAndSortProducts.sort(
+  //       (a, b) => parseInt(b.popularity) - parseInt(a.popularity)
+  //     );
+  //     break;
+  // }
 
   return (
     <div className="max-w-[1152px] mx-auto">
