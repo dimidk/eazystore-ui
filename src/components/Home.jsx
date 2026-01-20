@@ -3,7 +3,7 @@ import PageHeading from "./PageHeading";
 import ProductListing from "./ProductListing";
 import apiClient from "../api/apiClient";
 import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useLocation } from "react-router-dom";
 
 //Hooks concept
 //If use loader functions doesn't need any useState, useEffect
@@ -12,6 +12,12 @@ import { useLoaderData } from "react-router-dom";
 
 export default function Home() {
   const products = useLoaderData();
+  const location = useLocation();
+  const username = location.state;
+  const pathname = location.pathname;
+
+  console.log(pathname);
+  console.log(username);
 
   //update our state variable products through setProducts
   // const [products, setProducts] = useState([]);
