@@ -3,6 +3,7 @@ import Price from "./Price";
 import { Link } from "react-router";
 //import { useContext } from "react";
 import { useCart } from "../store/cart-context";
+import MyButton from "./MyButton";
 //import { CartContext } from "../store/cart-context";
 
 export default function ProductCard({ product }) {
@@ -31,14 +32,14 @@ export default function ProductCard({ product }) {
             <Price currency="$" price={product.price} />
           </div>
         </div>
-        <button
-          className="bg-primary dark:bg-light text-white
-        dark:text-primary font-medium text-sm 
-        py-2 px-4 rounded-md hover:cursor-pointer"
+        <MyButton
+          //   className="bg-primary dark:bg-light text-white
+          // dark:text-primary font-medium text-sm
+          // py-2 px-4 rounded-md hover:cursor-pointer"
           onClick={() => addToCart(product, 1)}
         >
           Add to Cart
-        </button>
+        </MyButton>
       </div>
     </div>
   );

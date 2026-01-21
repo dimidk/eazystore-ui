@@ -64,6 +64,7 @@ export default function Home() {
 
   return (
     <div className="max-w-[1152px] mx-auto px-6 py-8">
+      <button className="btn btn-primary">test</button>
       <PageHeading title="Are you a Pet Sitter? Please Log In!!">
         <span>This is a content between tags, so this is must displayed!!</span>
         <a>Testing</a>

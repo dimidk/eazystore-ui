@@ -1,6 +1,7 @@
 import React from "react";
 import PageTitle from "./PageTitle";
 import { Link } from "react-router-dom";
+import MyButton from "./MyButton";
 
 export default function Login() {
   return (
@@ -27,12 +28,12 @@ export default function Login() {
             />
           </div>
           <div align="space-between">
-            <button id="submitBut" name="submitBut" type="submit">
+            <MyButton id="submitBut" name="submitBut" type="submit">
               Login
-            </button>{" "}
-            <button id="resetBut" name="resetBut" type="reset">
+            </MyButton>{" "}
+            <MyButton id="resetBut" name="resetBut" type="reset">
               Reset
-            </button>
+            </MyButton>
             {" or "}
             <Link to="/register"> Register</Link>
           </div>

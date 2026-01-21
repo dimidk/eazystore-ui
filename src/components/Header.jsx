@@ -28,12 +28,12 @@ const Header = () => {
           <FontAwesomeIcon icon={faTags} className="fa-icon" />
           <span className="brand-title">Pet Sitter</span>
         </Link>
-        <nav className="nav">
+        <nav className="eazynav">
           <ul>
             <li>
               <NavLink
                 to="/home"
-                className="nav-link"
+                className="navLink"
                 // className={({ isActive }) =>
                 //   isActive ? underline`${navLinkClass}` : navLinkClass
                 // }
@@ -42,17 +42,17 @@ const Header = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/about" className="nav-link">
+              <NavLink to="/about" className="navLink">
                 About
               </NavLink>
             </li>
             <li>
-              <NavLink to="/contact" className="nav-link">
+              <NavLink to="/contact" className="navLink">
                 Contact
               </NavLink>
             </li>
             <li>
-              <NavLink to="/login" className="nav-link">
+              <NavLink to="/login" className="navLink">
                 Login
               </NavLink>
             </li>
