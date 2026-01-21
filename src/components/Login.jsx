@@ -7,35 +7,53 @@ export default function Login() {
   return (
     <div align="center">
       <PageTitle title="Login Page" />
-      <div>
+      <div
+        className="container col-4 justify-content-center
+      border border-dark rounded"
+      >
         <form>
-          <div>
-            <label for="username">Username</label>
+          <div className="mb-3 row">
+            <label className="col-sm-2 col-form-label" htmlFor="username">
+              Username
+            </label>
             <input
-              id="email"
+              className="form-control"
+              id="username"
               name="username"
               type="text"
               placeholder="your email..."
             />
           </div>
-          <div>
-            <label for="password">Password</label>
+          <div className="mb-3 row">
+            <label className="col-sm-2 col-form-label" htmlFor="password">
+              Password
+            </label>
             <input
+              className="form-control"
               id="passwd"
               name="password"
               type="password"
               placeholder="your password"
             />
           </div>
-          <div align="space-between">
-            <MyButton id="submitBut" name="submitBut" type="submit">
+          <div className=" mb-3 row">
+            {/* <MyButton id="submitBut" name="submitBut" type="submit">
               Login
             </MyButton>{" "}
             <MyButton id="resetBut" name="resetBut" type="reset">
               Reset
-            </MyButton>
+            </MyButton> */}
+            <button className="btn btn-primary col-sm-5" type="submit">
+              Login
+            </button>
+            <button className="btn btn-secondary col-sm-5" type="reset">
+              Reset
+            </button>
             {" or "}
-            <Link to="/register"> Register</Link>
+            <Link to="/register" className="navLink">
+              {" "}
+              Register
+            </Link>
           </div>
         </form>
       </div>

@@ -3,7 +3,10 @@ import PageHeading from "./PageHeading";
 import ProductListing from "./ProductListing";
 import apiClient from "../api/apiClient";
 import { useEffect, useState } from "react";
+import imageBeWild from "../assets/stickers/BeWild.png";
+import imageButterfly from "../assets/stickers/Butterfly.png";
 import { useLoaderData, useLocation } from "react-router-dom";
+import BootstrapButton from "./bootstrap/BootstrapButton";
 
 //Hooks concept
 //If use loader functions doesn't need any useState, useEffect
@@ -64,7 +67,79 @@ export default function Home() {
 
   return (
     <div className="max-w-[1152px] mx-auto px-6 py-8">
-      <button className="btn btn-primary">test</button>
+      {/* <div className="container col-6">
+        <BootstrapButton text="Submit" type="primary"></BootstrapButton>
+        <BootstrapButton text="Save" type="secondary"></BootstrapButton>
+        <BootstrapButton text="Okay" type="success"></BootstrapButton>
+        <BootstrapButton text="Cancel" type="danger"></BootstrapButton>
+        <BootstrapButton text="Delete" type="warning"></BootstrapButton>
+        <BootstrapButton text="Link" type="link"></BootstrapButton>
+      </div>
+      <div className="d-grid gap-2 col-8 mx-auto">
+        <div className="alert alert-primary text-center" role="alert">
+          A simple primary alert message
+        </div>
+        <div className="alert alert-secondary text-center" role="alert">
+          A simple primary alert message
+        </div>
+        <div className="alert alert-success text-center" role="alert">
+          A simple primary alert message
+        </div>
+        <div className="alert alert-danger text-center" role="alert">
+          A simple primary alert message
+        </div>
+        <div
+          className="alert alert-warning alert-dismissible fade show"
+          role="alert"
+        >
+          <strong>Warning!</strong> This is a warning alert
+          <button
+            type="button"
+            className="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
+
+        <div
+          className="container d-flex 
+        justify-content-center 
+        align-items-center gap-4"
+        >
+          <div className="card" style={{ width: "18rem" }}>
+            <img src={imageBeWild} alt="bewild" />
+            <div className="card-body">
+              <h5 className="card-title">Test Card Title</h5>
+              <p className="card-text">And text containing</p>
+            </div>
+            <a href="#" className="btn btn-primary">
+              Go somewhere else
+            </a>
+          </div>
+          <div className="card" style={{ width: "18rem" }}>
+            <img src={imageButterfly} alt="butterfly" />
+            <div className="card-body">
+              <h5 className="card-title">Test Card Title</h5>
+              <p className="card-text">And text containing</p>
+            </div>
+            <a href="#" className="btn btn-primary">
+              Go somewhere else
+            </a>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col-3 border p-3 bg-warning">col1</div>
+          <div className="col-3 border p-3 bg-success">col2</div>
+          <div
+            className="col-3 border p-3 
+          bg-danger text-white"
+          >
+            col3
+          </div>
+        </div>
+      </div> */}
+
       <PageHeading title="Are you a Pet Sitter? Please Log In!!">
         <span>This is a content between tags, so this is must displayed!!</span>
         <a>Testing</a>
